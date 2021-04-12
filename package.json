@@ -2,7 +2,7 @@
     "name": "ex3asm",
     "displayName": "EX3asm",
     "description": "",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "publisher": "sapphi-red",
     "engines": {
         "vscode": "^1.55.0"
