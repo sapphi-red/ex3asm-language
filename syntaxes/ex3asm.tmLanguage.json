@@ -68,7 +68,7 @@
 			"patterns": [
 				{
 					"name": "constant.numeric",
-					"match": "\\b-?[\\dABCDEF]+\\b"
+					"match": "\\b(-?\\d+|[\\dABCDEF]+)\\b"
 				},
 				{
 					"name": "variable.name",
