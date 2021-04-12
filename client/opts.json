@@ -1,0 +1,119 @@
+{
+  "AND": {
+    "code": "AC <- AC & M[ad]",
+    "desc": "ACとメモリオペランドのAND"
+  },
+  "ADD": {
+    "code": "AC <- AC + M[ad], E <- C_out(16)"
+  },
+  "LDA": {
+    "code": "AC <- M[ad]",
+    "desc": "メモリロード"
+  },
+  "STA": {
+    "code": "M[ad] <- AC",
+    "desc": "メモリにストア"
+  },
+  "BUN": {
+    "code": "PC <- ad",
+    "desc": "ジャンプ"
+  },
+  "BSA": {
+    "code": "M[ad] <- PC, PC <- ad + 1",
+    "desc": "復帰先命令アドレスをストアして分岐"
+  },
+  "ISZ": {
+    "code": "M[ad] <- M[ad] + 1, IF(M[ad] + 1 = 0) THEN PC <- PC + 1",
+    "desc": "メモリオペランドをインクリメント。インクリメント後の値が0のとき次命令をスキップ"
+  },
+  "CLA": {
+    "code": "AC <- 0"
+  },
+  "CLE": {
+    "code": "E <- 0"
+  },
+  "CMA": {
+    "code": "AC <- ~AC",
+    "desc": "ビット反転"
+  },
+  "CME": {
+    "code": "E <- ~E",
+    "desc": "ビット反転"
+  },
+  "CIR": {
+    "code": "AC(14:0) <- AC(15:1), AC(15) <- E, E <- AC(0)",
+    "desc": "右シフト"
+  },
+  "CIL": {
+    "code": "AC(15:1) <- AC(14:0), AC(0) <- E, E <- AC(15)",
+    "desc": "左シフト"
+  },
+  "INC": {
+    "code": "AC <- AC + 1"
+  },
+  "SPA": {
+    "code": "IF(AC(15) = 0) THEN PC <- PC + 1",
+    "desc": "AC >= 0で次命令をスキップ"
+  },
+  "SNA": {
+    "code": "IF(AC(15) = 1) THEN PC <- PC + 1",
+    "desc": "AC < 0で次命令をスキップ"
+  },
+  "SZA": {
+    "code": "IF(AC = 0) THEN PC <- PC + 1",
+    "desc": "AC == 0で次命令をスキップ"
+  },
+  "SZE": {
+    "code": "IF(E = 0) THEN PC <- PC + 1",
+    "desc": "E == 0で次命令をスキップ"
+  },
+  "HLT": {
+    "code": "S <- 0 (HALT)",
+    "desc": "停止"
+  },
+  "INP": {
+    "code": "AC(7:0) <- INPR, FGI(IOT) <- 0"
+  },
+  "OUT": {
+    "code": "OUTR <- AC(7:0), FGO(IOT) <- 0"
+  },
+  "SKI": {
+    "code": "IF(FGI(IOT) = 1) THEN PC <- PC + 1"
+  },
+  "SKO": {
+    "code": "IF(FGO(IOT) = 1) THEN PC <- PC + 1"
+  },
+  "ION": {
+    "code": "IEN <- 1"
+  },
+  "IOF": {
+    "code": "IEN <- 0"
+  },
+  "SIO": {
+    "code": "IOT <- 1"
+  },
+  "PIO": {
+    "code": "IOT <- 0"
+  },
+  "IMK": {
+    "code": "IMSK <- AC(3:0)"
+  },
+  "HEX": {
+    "desc": "16進定数。非負整数値。"
+  },
+  "DEC": {
+    "desc": "10進定数。符号付き整数。"
+  },
+  "CHR": {
+    "desc": "文字定数。ASCII(0～127)。"
+  },
+  "SYM": {
+    "desc": "ラベル。ラベルに対応するアドレス値。"
+  },
+  "ORG": {
+    "desc": "16進定数。後続の文のアドレスを指定。"
+  },
+  "END": {
+    "desc": "終端"
+  }
+}

@@ -7,20 +7,37 @@
     "engines": {
         "vscode": "^1.55.0"
     },
+    "main": "./client/extension.js",
+    "activationEvents": [
+        "onLanguage:ex3asm"
+    ],
     "categories": [
         "Programming Languages"
     ],
     "contributes": {
-        "languages": [{
-            "id": "ex3asm",
-            "aliases": ["EX3asm", "ex3asm"],
-            "extensions": [".asm"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "ex3asm",
-            "scopeName": "source.asm",
-            "path": "./syntaxes/ex3asm.tmLanguage.json"
-        }]
-    }
+        "capabilities": {
+            "hoverProvider": "true"
+        },
+        "languages": [
+            {
+                "id": "ex3asm",
+                "aliases": [
+                    "EX3asm",
+                    "ex3asm"
+                ],
+                "extensions": [
+                    ".asm"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "ex3asm",
+                "scopeName": "source.asm",
+                "path": "./syntaxes/ex3asm.tmLanguage.json"
+            }
+        ]
+    },
+    "devDependencies": {}
 }
