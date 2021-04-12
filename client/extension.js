@@ -1,7 +1,11 @@
 const vscode = require('vscode')
 const opts = require('./opts.json')
 
-vscode.languages.registerHoverProvider('ex3asm', {
+const optList = Object.keys(opts)
+
+const EX3ASM = 'ex3asm'
+
+vscode.languages.registerHoverProvider(EX3ASM, {
   provideHover(document, position, token) {
     const range = document.getWordRangeAtPosition(position, /[A-Z]{3}/)
     if (!range) {
@@ -29,3 +33,34 @@ vscode.languages.registerHoverProvider('ex3asm', {
     )
   }
 })
+
+vscode.languages.registerCompletionItemProvider(EX3ASM, {
+  provideCompletionItems(document, position, token) {
+    const range = document.getWordRangeAtPosition(position, /[A-Z]+/)
+    if (!range) {
+      return new vscode.CompletionList(
+        optList.map(opt => ({
+          label: opt,
+          kind: vscode.CompletionItemKind.Function
+        }))
+      )
+    }
+
+    const opt = document.getText(range)
+    if (opt.length >= 3) {
+      return null
+    }
+
+    const filteredOptList = optList.filter(o => o.startsWith(opt))
+    if (filteredOptList.length <= 0) {
+      return null
+    }
+
+    return new vscode.CompletionList(
+      filteredOptList.map(opt => ({
+        label: opt,
+        kind: vscode.CompletionItemKind.Function
+      }))
+    )
+  }
+}, ' ', '\t')
