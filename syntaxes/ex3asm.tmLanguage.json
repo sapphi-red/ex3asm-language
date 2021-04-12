@@ -68,11 +68,11 @@
 			"patterns": [
 				{
 					"name": "constant.numeric",
-					"match": "\\d+"
+					"match": "\\b-?[\\dABCDEF]+\\b"
 				},
 				{
 					"name": "variable.name",
-					"match": "\\w+"
+					"match": "\\b\\w+\\b"
 				}
 			]
 		}
