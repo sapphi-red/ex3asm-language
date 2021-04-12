@@ -68,7 +68,7 @@
 			"patterns": [
 				{
 					"name": "constant.numeric",
-					"match": "\\b(-?\\d+|[\\dABCDEF]+)\\b"
+					"match": "(?<=HEX|DEC|ORG)\\s+(-?\\d+|[\\dABCDEFabcdef]+)\\b"
 				},
 				{
 					"name": "variable.name",
