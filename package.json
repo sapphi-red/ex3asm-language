@@ -1,0 +1,26 @@
+{
+    "name": "ex3asm",
+    "displayName": "EX3asm",
+    "description": "",
+    "version": "0.0.1",
+    "publisher": "sapphi-red",
+    "engines": {
+        "vscode": "^1.55.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "ex3asm",
+            "aliases": ["EX3asm", "ex3asm"],
+            "extensions": [".asm"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "ex3asm",
+            "scopeName": "source.asm",
+            "path": "./syntaxes/ex3asm.tmLanguage.json"
+        }]
+    }
+}

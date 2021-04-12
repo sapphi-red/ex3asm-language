@@ -1,0 +1,81 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "EX3asm",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#labels"
+		},
+		{
+			"include": "#vars"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line",
+					"match": "/.*"
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control",
+					"match": "\\b(BUN|ISZ|SPA|SNA|SZA|SZE|HLT|END)\\b"
+				},
+				{
+					"name": "keyword.operator",
+					"match": "\\bI\\b"
+				},
+				{
+					"name": "keyword.control",
+					"match": "\\b(AND|ADD|CLA|CLE|CMA|CME|CIR|CIL|INC)\\b"
+				},
+				{
+					"name": "keyword.control",
+					"match": "\\b(INP|OUT|SKI|SKO|ION|IOF|SIO|PIO|IMK)\\b"
+				},
+				{
+					"name": "support.class",
+					"match": "\\b(LDA|STA|BSA)\\b"
+				}
+			]
+		},
+		"labels": {
+			"patterns": [
+				{
+					"name": "entity.name.function",
+					"match": "\\b(HEX|DEC)\\b"
+				},
+				{
+					"name": "entity.name.class",
+					"match": "\\b(CHR)\\b"
+				},
+				{
+					"name": "entity.name.type",
+					"match": "\\b(SYM|ORG)\\b"
+				}
+			]
+		},
+		"vars": {
+			"patterns": [
+				{
+					"name": "constant.numeric",
+					"match": "\\d+"
+				},
+				{
+					"name": "variable.name",
+					"match": "\\w+"
+				}
+			]
+		}
+	},
+	"scopeName": "source.asm"
+}
